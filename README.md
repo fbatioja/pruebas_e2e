@@ -1,5 +1,12 @@
 # pruebas_e2e
 
+## Integrantes del Equipo de Pruebas:
+- Carolina Casas, b.casas@uniandes.edu.co
+- Fabian Batioja, f.batioja@uniandes.edu.co
+- Santiago Ocampo, s.ocampor@uniandes.edu.co
+- Daniel Quiceno, d.quicenoc@uniandes.edu.co
+
+
 ## Funcionalidades a probar:
 ### 1. Creación de post:
 La creación de contenido de tipo publicación es una de las funcionalidades centrales de
