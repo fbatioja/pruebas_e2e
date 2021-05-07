@@ -30,6 +30,7 @@ La sección de diseño de navegación permite ordenar y referenciar las rutas as
 páginas creadas.
 
 ## Escenarios de Prueba:
+(Nota: El readme del repo detalla las instrucciones para ejecutar los escenarios. Estas instrucciones deben llevar a la ejecución de los escenarios. De lo contrario no se darán los puntos en el siguiente criterio. [2 puntos])
 1. x
 2. x
 3. x
