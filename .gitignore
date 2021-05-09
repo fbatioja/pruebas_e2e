@@ -19,3 +19,6 @@ snapshots.js
 coverage
 dist
 test-data.json
+
+.
+reports/
