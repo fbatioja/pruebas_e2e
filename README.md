@@ -33,10 +33,10 @@ páginas creadas.
 2. x
 3. x
 4. x
-5. x
-6. x
-7. x
-8. x
+5. Crear y visualizar un page en el listado.
+6. Crear, publicar y verificar el estado en el listado de un page.
+7. Despublicar y verificar el estado en el listado de un page.
+8. Eliminar un page.
 9. x
 10. x
 11. x
