@@ -16,4 +16,12 @@ if ENV["ADB_DEVICE_ARG"].nil?
   Then(/^I click on element having xpath "([^\"]*)"$/) do |xpath|
      @driver.find_element(:xpath, xpath).click
   end
+
+  Then(
+    /^I select option with text "(.*?)" for dropdown with id "(.*?)"$/) do |op_text, sel_id|
+    drop = @driver.find_element(:id, sel_id)
+    choose = Selenium::WebDriver::Support::Select.new(drop)
+    choose.select_by(:text, op_text)
+    sleep 2
+  end
 end
