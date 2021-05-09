@@ -19,6 +19,8 @@ Feature: Funcionalidad: Pagina
     When I click on element having css selector "section.view-actions .gh-publishmenu"
     When I click on element having css selector "button.gh-publishmenu-button"
     When I click on element having css selector ".gh-editor-header a[href="#/pages/"]"
+    When I click on element having css selector ".gh-contentfilter .gh-contentfilter-menu-trigger"
+    When I click on element having xpath "//li[text()='Published pages']"
     Then I should see text "Escenario 2: Crear una pagina y publicarla"
 
   @user3 @web
@@ -38,6 +40,8 @@ Feature: Funcionalidad: Pagina
     When I click on element having xpath "//div[text()='Unpublished']"
     When I click on element having css selector "button.gh-publishmenu-button"
     When I click on element having css selector ".gh-editor-header a[href="#/pages/?type=published"]"
+    When I click on element having css selector ".gh-contentfilter .gh-contentfilter-menu-trigger"
+    When I click on element having xpath "//li[text()='Draft pages']"
     Then I should see text "Escenario 3: Crear una pagina y despublicarla"
 
   @user4 @web
