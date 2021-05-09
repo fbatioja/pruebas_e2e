@@ -68,4 +68,23 @@ cypress run
 Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `cypress open` y seleccione la carpeta `cypress/` que se encuentra dentro del repositorio.
 
 ## Instrucciones para ejecutar los escenarios en Kraken:
-(Nota: El readme del repo detalla las instrucciones para ejecutar los escenarios. Estas instrucciones deben llevar a la ejecución de los escenarios. De lo contrario no se darán los puntos en el siguiente criterio. [2 puntos])
+### Configuración
+Se debe configurar un usuario administrador y la url del sitio de ghost en el cual se van a ejecutar las pruebas. Esta configuración se realiza en `kraken/feature/web/step_definitions/web_steps.rb`. Debe modificar las variables `$email`, `$password` y `$url`.
+```
+  Then(/^I login in ghost as admin$/) do
+    $email = 'admin@test.com'
+    $password = '1a2B3c4D,F'
+    $url = 'http://localhost:2370/ghost/'
+    @driver.navigate.to $url
+      sleep 2
+    @driver.find_element(:css, 'input[name="identification"]').send_keys($email)
+    @driver.find_element(:css, 'input[name="password"]').send_keys($password)
+    @driver.find_element(:css, '#login button[type="submit"]').click
+      sleep 2
+  end
+```
+### Ejecución de los escenarios
+Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `kraken/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+```
+bundle exec kraken-mobile run
+```
