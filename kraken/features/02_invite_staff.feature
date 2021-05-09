@@ -8,6 +8,6 @@ Feature: In order to test ghost application
     Then I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/staff/"]"
     Then I click on element having css selector "button.gh-btn-green"
     Then I enter "adminuser@contoso.com" into input field having id "new-user-email"
-    Then I select option with value "60973d9f2baf4729a0f22c79" for dropdown with id "new-user-role"
+    Then I select option with text "Administrator" for dropdown with id "new-user-role"
     Then I click on element having css selector "button.gh-btn.gh-btn-green.gh-btn-icon.ember-view"
     Then I should see text "adminuser@contoso.com"
