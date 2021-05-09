@@ -5,7 +5,7 @@ Feature: In order to test ghost application
   @user1 @web
   Scenario: Sucessfull Author user invitation
     Given I login in ghost as admin
-    Then I click on element having id "ember18"
+    Then I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/staff/"]"
     Then I click on element having css selector "button.gh-btn-green"
     Then I enter "user@contoso.com" into input field having id "new-user-email"
     Then I click on element having css selector "button.gh-btn.gh-btn-green.gh-btn-icon.ember-view"
