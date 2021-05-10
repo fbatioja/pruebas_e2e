@@ -46,10 +46,10 @@ páginas creadas.
 15. Invitar un usuario duplicado y verificar el mensaje de error
 16. Invitar un usuario con email inválido y verificar el mensaje de error
 17. Invitar un usuario sin email y verificar el mensaje de error
-18. x
-19. x
-20. x
-21. x
+18. Crear un nuevo item en el menú de navegación
+19. Crear un nuevo item en el menú de navegación secundario
+20. Intentar crear un nuevo item con una URL invalida
+21. Intentar crear un nuevo item con una URL invalida en el menu secundario
 
 ## Instrucciones para ejecutar los escenarios en Cypress:
 ### Instalación
