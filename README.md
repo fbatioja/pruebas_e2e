@@ -29,10 +29,10 @@ La sección de diseño de navegación permite ordenar y referenciar las rutas as
 páginas creadas.
 
 ## Escenarios de Prueba:
-1. x
-2. x
-3. x
-4. x
+1. Crear un post y verificar la existencia del post en la lista de posts
+2. Crear un post, publicarlo y verificar en la lista de post el estado del post
+3. Crear un post, publicar el post, despublicarlo y verificar en la lista de post su estado
+4. Crear un post y eliminarlo 
 5. Crear y visualizar un page en el listado.
 6. Crear, publicar y verificar el estado en el listado de un page.
 7. Despublicar y verificar el estado en el listado de un page.
