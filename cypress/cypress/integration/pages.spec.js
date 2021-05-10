@@ -1,4 +1,4 @@
-import { LoginPage } from "../support/pageObjects/LoginPage";
+import { LoginPage } from "../support/PageObjects/LoginPage";
 import { PagePage } from "../support/PageObjects/PagePage";
 
 describe('Funcionalidad: Pagina', () => {
