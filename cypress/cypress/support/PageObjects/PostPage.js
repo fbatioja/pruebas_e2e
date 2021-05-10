@@ -13,45 +13,45 @@ export class PostPage {
     }
 
     getListTitlesPosts() {
-        return cy.get('ol.gh-list h3').wait(3000);
+        return cy.get('ol.gh-list h3');
     }
 
     setPostTitle(title) {
-        cy.get('textarea.gh-editor-title').wait(3000).type(title).wait(3000);
+        cy.get('textarea.gh-editor-title').type(title);
     }
 
     createDraft() {
-        cy.get('article.koenig-editor').wait(3000).click();
+        cy.get('article.koenig-editor').click();
     }
 
     clickPost(title) {
-        this.getListTitlesPosts().wait(3000).contains(title).click({ force: true });
+        this.getListTitlesPosts().contains(title).click({ force: true });
     }
 
     publishPost() {
-        cy.get('section.view-actions .gh-publishmenu').wait(3000).click();
-        cy.get('button.gh-publishmenu-button').wait(3000).click();
+        cy.get('section.view-actions .gh-publishmenu').click();
+        cy.get('button.gh-publishmenu-button').click();
     }
 
     unPublishPost() {
-        cy.get('section.view-actions .gh-publishmenu').wait(3000).click();
-        cy.get('.gh-publishmenu-radio-label').wait(3000).contains('Unpublished').click();
-        cy.get('button.gh-publishmenu-button').wait(3000).click();
+        cy.get('section.view-actions .gh-publishmenu').click();
+        cy.get('.gh-publishmenu-radio-label').contains('Unpublished').click();
+        cy.get('button.gh-publishmenu-button').click();
     }
 
     openPanelConfiguration() {
-        cy.get('section.view-actions button.post-settings').wait(3000).click();
+        cy.get('section.view-actions button.post-settings').click();
     }
 
     clickDeleteButton() {
-        cy.get('button.settings-menu-delete-button').wait(3000).click();
+        cy.get('button.settings-menu-delete-button').click();
     }
 
     confirmDelete() {
-        cy.get('section.modal-content button').wait(3000).contains('Delete').click();
+        cy.get('section.modal-content button').contains('Delete').click();
     }
 
     getStatusPost(title) {
-        return this.getListTitlesPosts().wait(3000).contains(title, {force: true}).parent('a').parent('li');
+        return this.getListTitlesPosts().contains(title, {force: true}).parent('a').parent('li');
     }
 }
