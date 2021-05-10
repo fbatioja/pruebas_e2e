@@ -41,16 +41,24 @@ páginas creadas.
 10. x
 11. x
 12. x
-13. x
-14. x
-15. x
-16. x
-17. x
-18. x
-19. x
-20. x
+13. Invitar un usuario como "Author" y verificar el estado de envío
+14. Invitar un usuario como "Administrador" y verificar el estado de envío
+15. Invitar un usuario duplicado y verificar el mensaje de error
+16. Invitar un usuario con email inválido y verificar el mensaje de error
+17. Invitar un usuario sin email y verificar el mensaje de error
+18. Crear un nuevo item en el menú de navegación
+19. Crear un nuevo item en el menú de navegación secundario
+20. Intentar crear un nuevo item con una URL invalida
+21. Intentar crear un nuevo item con una URL invalida en el menu secundario
 
 ## Instrucciones para ejecutar los escenarios en Cypress:
+### Instalación
+Para la ejecución de los escenarios de pruebas es necesario contar con una instalación global de cypress en su equipo.
+Primero, verifique que cuente con una versión de Node.js de 12 en adelante.
+Posteriormente ejecute el comando `npm install cypress` y aguarde a que se instalen todas las dependencias.
+
+Si desea realizar la instalación por contenedores de docker, le recomendamos seguir las instrucciones de la documentación oficial de [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress).
+
 ### Configuración
 Se debe configurar un usuario administrador y la url del sitio de ghost en el cual se van a ejecutar las pruebas. Esta configuración se realiza en `cypress/fixtures/environment.json` como se muestra en el siguiente ejemplo:
 ```

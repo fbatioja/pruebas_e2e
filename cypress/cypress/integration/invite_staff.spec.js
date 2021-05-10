@@ -1,4 +1,4 @@
-import { LoginPage } from "../support/pageObjects/LoginPage";
+import { LoginPage } from "../support/PageObjects/LoginPage";
 import { StaffPage } from "../support/PageObjects/StaffPage";
 
 describe('In order to test ghost application as a site administrator i want invite a new staff member', () => {
