@@ -74,7 +74,6 @@ describe('Funcionalidad: Posts', () => {
             pageObjectPage.openPanelConfiguration();
             pageObjectPage.clickDeleteButton();
             pageObjectPage.confirmDelete();
-            pageObjectPage.navigatePost();
             pageObjectPage.getListTitlesPosts().contains(title).should('not.exist');
         });
     });
