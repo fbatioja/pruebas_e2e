@@ -4,7 +4,7 @@ if ENV["ADB_DEVICE_ARG"].nil?
   Then(/^I login in ghost as admin$/) do
     $email = 'admin@test.com'
     $password = '1a2B3c4D,F'
-    $url = 'http://localhost:2370/ghost/'
+    $url = 'http://localhost:2368/ghost/'
     @driver.navigate.to $url
       sleep 2
     @driver.find_element(:css, 'input[name="identification"]').send_keys($email)
@@ -22,6 +22,11 @@ if ENV["ADB_DEVICE_ARG"].nil?
     drop = @driver.find_element(:id, sel_id)
     choose = Selenium::WebDriver::Support::Select.new(drop)
     choose.select_by(:text, op_text)
+    sleep 2
+  end
+
+  Then(/^I enter "([^\"]*)" into input field having xpath "([^\"]*)"$/) do |text, selector|
+    @driver.find_element(:xpath, selector).send_keys(text)
     sleep 2
   end
 end
