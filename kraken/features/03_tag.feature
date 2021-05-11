@@ -13,8 +13,6 @@ Feature: In order to test ghost application
     When I enter "Tercero meta title" into input field having css selector "#meta-title"
     When I enter "Tercero meta description" into input field having css selector "#meta-description"
     When I click on element having css selector "section.view-actions button"
-    When I click on element having css selector "section.view-actions a[href="#/tags/new/"]"
-    When I click on element having css selector ".gh-tag-list-title h3"
     Then I click on element having xpath ".//span[text()='Delete tag']"
     Then I click on element having xpath ".//span[text()='Delete']"
 
