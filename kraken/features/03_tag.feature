@@ -5,7 +5,7 @@ Feature: In order to test ghost application
   @user1 @web
   Scenario: Escenario 3: Crear una tag y eliminarlo
     Given I login in ghost as admin
-    Given I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/tags/"]'"
+    Given I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/tags/"]"
     When I click on element having css selector "section.view-actions a[href="#/tags/new/"]"
     When I enter "Tercero tag" into input field having css selector "#tag-name"
     When I enter "Tercero slug" into input field having css selector "#tag-slug"

@@ -5,7 +5,7 @@ Feature: In order to test ghost application
   @user1 @web
   Scenario: Crear un tag y verificar la existencia del tag en la lista de tags
     Given I login in ghost as admin
-    Given I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/tags/"]'"
+    Given I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/tags/"]"
     When I click on element having css selector "section.view-actions a[href="#/tags/new/"]"
     When I enter "Primer tag" into input field having css selector "#tag-name"
     When I enter "Primer slug" into input field having css selector "#tag-slug"
