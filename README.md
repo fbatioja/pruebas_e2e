@@ -96,6 +96,10 @@ Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta 
 ```
 bundle exec kraken-mobile run
 ```
-La prueba con el anterior comando se realizo con un Mac configurado con los pasos descritos en el tutorial https://misovirtual.virtual.uniandes.edu.co/codelabs/kraken-testing-web/index.html#2. Si se encuentra en Ubuntu puede necesitar ejecutar `bundle install --path vendor/bundle` y `bundle install`.
+La prueba con el anterior comando se realizo con un Mac configurado con los pasos descritos en el tutorial de [kraken](https://misovirtual.virtual.uniandes.edu.co/codelabs/kraken-testing-web/index.html#2). Si se encuentra en Ubuntu puede necesitar ejecutar los siguientes comandos:
+```
+bundle install --path vendor/bundle 
+bundle install
+```
 
 Si presenta errores con la ejecución copie los archivos con los features que se encuentran en `kraken/feature/` y el archivo con los pasos que se encuentra en `kraken/feature/web/step_definitions/web_steps.rb` y péguelos en un proyecto funcional de kraken.
