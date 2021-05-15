@@ -4,6 +4,7 @@ Feature: In order to test ghost application
 
   @user1 @web
   Scenario: Escenario 4: Crear un post y eliminarlo
+    Given I set scenario "post"
     Given I login in ghost as admin
     Given I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/posts/"]"
     Given I click on element having css selector "section .view-actions a[href="#/editor/post/"]"

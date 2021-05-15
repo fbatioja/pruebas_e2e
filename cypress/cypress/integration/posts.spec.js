@@ -21,7 +21,7 @@ describe('Funcionalidad: Posts', () => {
     });
 
     context('Escenario 1: Crear un post  y listarlo', () => {
-        let title = getRandomString(8);
+        let title = "nuevo post";
         it('Crear un post', () => {
             pageObjectPage.clickNewPostButton();
             pageObjectPage.setPostTitle(title);
@@ -32,7 +32,7 @@ describe('Funcionalidad: Posts', () => {
         });
     });
     context('Escenario 2: Crear un post y publicarlo', () => {
-        let title = getRandomString(8);
+        let title = "nuevo post publicar";
         it('Crear un post', () => {
             pageObjectPage.clickNewPostButton();
             pageObjectPage.setPostTitle(title);
@@ -46,7 +46,7 @@ describe('Funcionalidad: Posts', () => {
         });
     });
     context('Escenario 3: Crear un post, publicar post y despublicarlo', () => {
-        let title = getRandomString(8);
+        let title = "nuevo post dedpublicar";
         it('Crear un post', () => {
             pageObjectPage.clickNewPostButton();
             pageObjectPage.setPostTitle(title);
@@ -63,7 +63,7 @@ describe('Funcionalidad: Posts', () => {
         });
     });
     context('Escenario 4: Crear una post y eliminarlo', () => {
-        let title = getRandomString(8);
+        let title = "nuevo post eliminar";
         it('Crear un post', () => {
             pageObjectPage.clickNewPostButton();
             pageObjectPage.setPostTitle(title);

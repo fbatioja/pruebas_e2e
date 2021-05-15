@@ -1,5 +1,13 @@
+$versionapp = "3.3.0"
+$featurescenariostep = ""
+_id = 0
+
 if ENV["ADB_DEVICE_ARG"].nil?
   require 'kraken-mobile/steps/web/kraken_steps'
+
+  Given(/^I set scenario "(.*?)"$/) do |scenario|
+    $featurescenariostep = scenario
+  end
 
   Then(/^I login in ghost as admin$/) do
     $email = 'admin@test.com'
@@ -29,4 +37,15 @@ if ENV["ADB_DEVICE_ARG"].nil?
     @driver.find_element(:xpath, selector).send_keys(text)
     sleep 2
   end
+
+
+  AfterStep do |_scenario|
+    Dir.mkdir("./screenshots") unless File.exist?("./screenshots")
+    Dir.mkdir("./screenshots/#{$versionapp}") unless File.exist?("./screenshots/#{$versionapp}")
+    Dir.mkdir("./screenshots/#{$versionapp}/#{$featurescenariostep}") unless File.exist?("./screenshots/#{$versionapp}/#{$featurescenariostep}")
+    path = "./screenshots/#{$versionapp}/#{$featurescenariostep}/#{_id += 1}_#{$featurescenariostep}.png"
+    @driver.save_screenshot(path)
+    embed(path, 'image/png', File.basename(path))
+  end
+
 end

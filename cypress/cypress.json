@@ -1,1 +1,7 @@
-{ "chromeWebSecurity": false}
+{ 
+    "chromeWebSecurity": false,
+    "env": {
+        "version_app": "3.3.0",
+        "index_post": 1
+    }
+}
