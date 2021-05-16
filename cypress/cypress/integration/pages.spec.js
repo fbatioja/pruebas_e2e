@@ -3,7 +3,7 @@ import { PagePage } from "../support/PageObjects/PagePage";
 
 describe('Funcionalidad: Pagina', () => {
     const loginPage = new LoginPage();
-    var pageObjectPage = new PagePage();
+    const pageObjectPage = new PagePage();
     pageObjectPage.resetIndexScreshot();
     beforeEach(()=>{
         cy.fixture('environment').then(function(data) {

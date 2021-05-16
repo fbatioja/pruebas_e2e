@@ -21,15 +21,18 @@ describe('Funcionalidad: Pagina', () => {
     });
 
     it('Escenario 1: Agregar item en el menu de navegacion', () => {
+        navigationPage.setScenario('agregar_item_en_el_menu_de_navegacion');
         let label = getRandomString(5);
         navigationPage.setLabelMenu1(label);
         navigationPage.clickButtonAddMenu1();
         navigationPage.clickSaveButton();
         cy.reload();
         navigationPage.getInputsLabelMenu1().eq(-2).scrollIntoView().should('have.value', label)
+        pageObjectPage.resetIndexScreshot();
     });
 
     it('Escenario 2: Agregar item en el menu de navegacion secundario', () => {
+        navigationPage.setScenario('agregar_item_en_el_menu_de_navegacion_secundario');
         let label = getRandomString(5);
         navigationPage.setLabelMenu2(label);
         navigationPage.clickButtonAddMenu2();
@@ -39,21 +42,25 @@ describe('Funcionalidad: Pagina', () => {
     });
 
     it('Escenario 3: Ingresar URL sin formato menu 1', () => {
+        navigationPage.setScenario('ingresar_url_sin_formato_menu_1');
         let label = getRandomString(5);
         let badURL =  'Url sin formato';
         navigationPage.setLabelMenu1(label);
         navigationPage.setUrlMenu1(badURL);
         navigationPage.clickButtonAddMenu1();
         navigationPage.getInputsUrlMenu1().eq(-2).should('not.have.value', badURL);
+        pageObjectPage.resetIndexScreshot();
     });
 
     it('Escenario 4: Ingresar URL sin formato menu 2', () => {
+        navigationPage.setScenario('ingresar_url_sin_formato_menu_2');
         let label = getRandomString(5);
         let badURL =  'Url sin formato';
         navigationPage.setLabelMenu2(label);
         navigationPage.setUrlMenu2(badURL);
         navigationPage.clickButtonAddMenu2();
         navigationPage.getInputsUrlMenu2().eq(-2).should('not.have.value', badURL);
+        pageObjectPage.resetIndexScreshot();
     });
 
 });
