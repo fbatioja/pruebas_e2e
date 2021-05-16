@@ -2,6 +2,8 @@
     "chromeWebSecurity": false,
     "env": {
         "version_app": "3.3.0",
-        "index_post": 1
+        "index_post": 1,
+        "index_page": 1,
+        "time": 0
     }
 }
