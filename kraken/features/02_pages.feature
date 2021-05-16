@@ -4,6 +4,7 @@ Feature: In order to test ghost application
 
   @user1 @web
   Scenario: Escenario 2: Crear una pagina y publicarla
+    Given I set scenario "crear_una_pagina_y_publicarla"
     Given I login in ghost as admin
     Given I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/pages/"]"
     Given I click on element having css selector "section .view-actions a[href="#/editor/page/"]"
