@@ -1,11 +1,9 @@
 { 
     "chromeWebSecurity": false,
     "env": {
-        "version_app": "3.45.0",
-        "index_post": 1,
-        "index_page": 1,
-        "index_navigation": 1,
-        "time": 0
-    },
-    "trashAssetsBeforeRuns":true
+        "version_app": "3.42.5",
+        "index_post": 0,
+        "index_page": 0,
+        "index_navigation": 0
+    }
 }
