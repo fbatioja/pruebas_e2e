@@ -128,3 +128,30 @@ bundle install
 ```
 
 Si presenta errores con la ejecución copie los archivos con los features que se encuentran en `kraken/feature/` y el archivo con los pasos que se encuentra en `kraken/feature/web/step_definitions/web_steps.rb` y péguelos en un proyecto funcional de kraken.
+
+
+## Instrucciones para ejecutar la comparación en Backstop
+
+### Instalación
+
+Para la ejecución y generación del reporte VRT de los escenarios de pruebas, es necesario contar con una instalación global de [BackstopJS](http://garris.github.io/BackstopJS/) en su equipo.
+Primero, verifique que cuente con una versión de Node.js de 12 en adelante.
+Posteriormente ejecute el comando `npm install -g backstopjs` y aguarde a que se instalen todas las dependencias.
+
+
+### Configuración
+
+Para la generación del reporte pre-establecido en este proyecto, es necesario indicar la referencia de los archivos a comparar, descritos en el archivo `backstop.json`.
+Para esto desde la terminal ubiquese en la carpeta `backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+```
+backstop reference
+```
+
+### Ejecución de los escenarios
+
+Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+```
+backstop test
+```
+Esto realizará la comparación visual de entre las imágenes de referencia y las objetivo, posteriormente se generará un reporte en formato HTML.
+Para visualizarlo, ubíquese en la carpeta `backstop/backstop_data/html_report` en el archivo `index.html` e interactúe con los resultados.
