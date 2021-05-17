@@ -4,6 +4,7 @@ Feature: In order to test ghost application
 
   @user1 @web
   Scenario: Escenario 1: Crear una pagina y listarla
+    Given I set scenario "crear_una_pagina_y_listarla"
     Given I login in ghost as admin
     Given I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/pages/"]"
     When I click on element having css selector "section .view-actions a[href="#/editor/page/"]"
@@ -11,4 +12,3 @@ Feature: In order to test ghost application
     When I click on element having css selector "article.koenig-editor"
     When I click on element having css selector ".gh-editor-header a[href="#/pages/"]"
     Then I should see text "Escenario 1: Crear una pagina y listarla"
-

@@ -1,15 +1,35 @@
 export class TagPage {
+    setScenario (scenario) {
+        this.scenario = scenario;
+        if (Cypress.env('index_page') === 0) {
+        // Cypress.env('time', Date.now());
+        }
+    }
 
+    screenshot() {
+        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('index_page')+'_page'
+        cy.screenshot(filename);
+        Cypress.env('index_page', Cypress.env('index_page')+1);
+        cy.wait(1000);
+    }
+
+    resetIndexScreshot() {
+        Cypress.env('index_page', 0);
+        // Cypress.env('time', 0);
+    }
+    
     navigateTag() {
         cy.get('.gh-nav-body .gh-nav-manage a[href="#/tags/"]').click();
     }
 
     clickNewTagButton() {
-        return cy.get('section.view-actions a[href="#/tags/new/"]'  ).click();
+        cy.get('section.view-actions a[href="#/tags/new/"]').click();
+        this.screenshot();
     }
 
     clickReturnTagLink() {
-        return cy.get('.gh-editor-header a[href="#/tags/"]').click();
+        cy.get('.gh-editor-header a[href="#/tags/"]').click();
+        this.screenshot();
     }
 
     getListNamesTags() {
@@ -38,14 +58,17 @@ export class TagPage {
 
     clickSaveButton() {
         cy.get('section.view-actions button').click();
+        this.screenshot();
     }
 
     clickTag(name) {
         this.getListNamesTags().contains(name).click({ force: true });
+        this.screenshot();
     }
 
     clickDeleteButton() {
         cy.contains('button', 'Delete tag').click();
+        this.screenshot();
     }
 
     confirmDelete() {

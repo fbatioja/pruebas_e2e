@@ -1,0 +1,60 @@
+{
+  "options":{
+    "output": {
+      "errorColor": {
+        "red": 255,
+        "green": 0,
+        "blue": 255
+      },
+      "errorType": "movement",
+      "largeImageThreshold": 1200,
+      "useCrossOrigin": false,
+      "outputDiff": true
+    },
+    "scaleToSameSize": true,
+    "ignore": "antialiasing"
+  },
+  "kraken": {
+    "scenaries": [
+
+    ],
+    "pathOldVersion": "",
+    "pathNewVersion": ""
+  },
+  "cypress": {
+    "scenaries": [
+      {
+        "name": "crear_una_pagina_y_despublicarla",
+        "pathFeature": "../cypress/cypress/screenshots/pages.spec.js"
+      },
+      {
+        "name": "crear_una_pagina_y_eliminarla",
+        "pathFeature": "../cypress/cypress/screenshots/pages.spec.js"
+      },
+      {
+        "name": "crear_una_pagina_y_listarla",
+        "pathFeature": "../cypress/cypress/screenshots/pages.spec.js"
+      },
+      {
+        "name": "crear_una_pagina_y_publicarla",
+        "pathFeature": "../cypress/cypress/screenshots/pages.spec.js"
+      },
+      {
+        "name": "Crear_un post_y_publicarlo",
+        "pathFeature": "../cypress/cypress/screenshots/posts.spec.js"
+      },
+      {
+        "name": "Crear_un post_y_listarlo",
+        "pathFeature": "../cypress/cypress/screenshots/posts.spec.js"
+      },
+      {
+        "name": "Crear_un post_y_eliminarlo",
+        "pathFeature": "../cypress/cypress/screenshots/posts.spec.js"
+      },
+      {
+        "name": "Crear_un post_publicarlo_despublicarlo",
+        "pathFeature": "../cypress/cypress/screenshots/posts.spec.js"
+      }
+    ]
+  }
+}

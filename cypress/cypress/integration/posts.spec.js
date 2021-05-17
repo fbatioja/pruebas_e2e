@@ -4,6 +4,7 @@ import { PostPage } from "../support/PageObjects/PostPage";
 describe('Funcionalidad: Posts', () => {
     const loginPage = new LoginPage();
     const pageObjectPage = new PostPage();
+    pageObjectPage.resetIndexScreshot();
     beforeEach(()=>{
         cy.fixture('environment').then(function(data) {
             var loginUrl = '';
@@ -21,38 +22,46 @@ describe('Funcionalidad: Posts', () => {
     });
 
     context('Escenario 1: Crear un post  y listarlo', () => {
-        let title = getRandomString(8);
+        let title = "nuevo post";
         it('Crear un post', () => {
+            pageObjectPage.setScenario('Crear_un post_y_listarlo');
             pageObjectPage.clickNewPostButton();
             pageObjectPage.setPostTitle(title);
             pageObjectPage.createDraft();
         });
         it('Listar post', () => {
+            pageObjectPage.setScenario('Crear_un post_y_listarlo');
             pageObjectPage.getListTitlesPosts().contains(title);
+            pageObjectPage.resetIndexScreshot();
         });
     });
     context('Escenario 2: Crear un post y publicarlo', () => {
-        let title = getRandomString(8);
+        let title =  getRandomString(8);
         it('Crear un post', () => {
+            pageObjectPage.setScenario('Crear_un post_y_publicarlo');
             pageObjectPage.clickNewPostButton();
             pageObjectPage.setPostTitle(title);
             pageObjectPage.createDraft();
         });
         it('Publicar post', () => {
+            pageObjectPage.setScenario('Crear_un post_y_publicarlo');
             pageObjectPage.clickPost(title);
             pageObjectPage.publishPost();
             pageObjectPage.clickReturnPostLink();
             pageObjectPage.getStatusPost(title).contains('Published');
+            pageObjectPage.resetIndexScreshot();
         });
     });
     context('Escenario 3: Crear un post, publicar post y despublicarlo', () => {
-        let title = getRandomString(8);
+        let title =  getRandomString(8);
         it('Crear un post', () => {
+            pageObjectPage.setScenario('Crear_un post_publicarlo_despublicarlo');
             pageObjectPage.clickNewPostButton();
             pageObjectPage.setPostTitle(title);
             pageObjectPage.createDraft();
         });
         it('Publicar y despublicar post', () => {
+            pageObjectPage.setScenario('Crear_un post_publicarlo_despublicarlo');
             pageObjectPage.clickPost(title);
             pageObjectPage.publishPost();
             pageObjectPage.clickReturnPostLink();
@@ -60,21 +69,25 @@ describe('Funcionalidad: Posts', () => {
             pageObjectPage.unPublishPost();
             pageObjectPage.clickReturnPostLink();
             pageObjectPage.getStatusPost(title).contains('Draft');
+            pageObjectPage.resetIndexScreshot();
         });
     });
     context('Escenario 4: Crear una post y eliminarlo', () => {
-        let title = getRandomString(8);
+        let title =  getRandomString(8);
         it('Crear un post', () => {
+            pageObjectPage.setScenario('Crear_un post_y_eliminarlo');
             pageObjectPage.clickNewPostButton();
             pageObjectPage.setPostTitle(title);
             pageObjectPage.createDraft();
         });
         it('Eliminar post', () => {
+            pageObjectPage.setScenario('Crear_un post_y_eliminarlo');
             pageObjectPage.clickPost(title);
             pageObjectPage.openPanelConfiguration();
             pageObjectPage.clickDeleteButton();
             pageObjectPage.confirmDelete();
             pageObjectPage.getListTitlesPosts().contains(title).should('not.exist');
+            pageObjectPage.resetIndexScreshot();
         });
     });
 });

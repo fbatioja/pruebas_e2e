@@ -1,10 +1,26 @@
 export class NavigationPage {
+    setScenario (scenario) {
+        this.scenario = scenario;
+    }
+
+    screenshot() {
+        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('index_navigation')+'_navigation'
+        cy.screenshot(filename);
+        Cypress.env('index_navigation', Cypress.env('index_navigation')+1);
+        cy.wait(1000);
+    }
+
+    resetIndexScreshot() {
+        Cypress.env('index_navigation', 0);
+    }
+
     navigatePage() {
         cy.get('.gh-nav-body .gh-nav-settings a[href="#/settings/design/"]').click();
     }
 
     clickButtonAddMenu1() {
         cy.get('#settings-navigation button.gh-blognav-add').click({'force': true});
+        this.screenshot();
     }
 
     setLabelMenu1(text) {
@@ -13,6 +29,7 @@ export class NavigationPage {
 
     clickSaveButton() {
         cy.get('section.view-actions button').contains('Save').click();
+        this.screenshot();
     }
 
     setLabelMenu2(text) {
@@ -21,6 +38,7 @@ export class NavigationPage {
 
     clickButtonAddMenu2() {
         cy.get('#secondary-navigation button.gh-blognav-add').click({'force': true});
+        this.screenshot();
     }
 
     getInputsLabelMenu1() {

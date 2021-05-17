@@ -4,6 +4,7 @@ Feature: In order to test ghost application
 
   @user1 @web
   Scenario: Duplicated user invitation
+    Given I set scenario "duplicated_user_invitation"
     Given I login in ghost as admin
     Then I click on element having css selector ".gh-nav-body .gh-nav-manage a[href="#/staff/"]"
     Then I click on element having css selector "button.gh-btn-green"
