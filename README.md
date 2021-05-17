@@ -112,9 +112,13 @@ Se debe configurar un usuario administrador y la url del sitio de ghost en el cu
   end
 ```
 
-### Ejecución de los escenarios
-
-Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `kraken/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+### Ejecución de los escenarios en Kraken
+Nota: Pra la ejecución de los escenarios de Kraken se requiere utilizar la resolución de pantalla fullscreen, para ello se debe instalar un componente en la maquina virtual, explicado a continuación:
+1. Abrir VirtualBox y correr la máquina virtual de Ubuntu. Iniciar sesión con usuario con permisos de Administrador
+2. Dar Click en el icono "Dash" en la parte superior del menu a la izquierda de la pantalla. Escribir "Terminal" en la barra de buscador. Correr la aplicación de "Terminal" desde los resultados del buscador.
+3. Escribir en el "Terminal": `sudo apt-get install virtualbox-guest-dmks` y presionar "Enter". Esperar hasta finalizar la instalación. La funcionalidad de ajustar tamaño de pantalla estará activada
+4. Reiniciar Maquina Virtual
+5. Ejecutar pruebas desde la terminal clonando el repositorio y ubicádose en la carpeta `kraken/` que se encuentra dentro del repositorio, ejecutando el siguiente comando:
 
 ```
 bundle exec kraken-mobile run
