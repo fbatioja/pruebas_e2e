@@ -87,7 +87,12 @@ Se debe configurar un usuario administrador y la url del sitio de ghost en el cu
 }
 ```
 
-### Ejecución de los escenarios
+### Pasos para la ejecutar el reporte
+1. Ejecutar Cypres para las pruebas 3.3, cambiando la versión en la variables de ambiente
+2. Ejecutar Cypres para las pruebas 3.45, cambiando la versión en la variables de ambiente
+3. Ingresar a la carpeta resultados
+4. Ejecutar comando `npm install`
+5. Ejecutar comando `node index.js`
 
 Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `cypress/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
 ```
@@ -147,11 +152,14 @@ Para esto desde la terminal ubiquese en la carpeta `backstop/` que se encuentra 
 backstop reference
 ```
 
-### Ejecución de los escenarios
 
-Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+### Pasos para la ejecutar el reporte
+1. Ejecutar Cypres para las pruebas 3.3, cambiando la versión en la variables de ambiente
+2. Ejecutar Cypres para las pruebas 3.45, cambiando la versión en la variables de ambiente
+3. Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
 ```
 backstop test
 ```
 Esto realizará la comparación visual de entre las imágenes de referencia y las objetivo, posteriormente se generará un reporte en formato HTML.
 Para visualizarlo, ubíquese en la carpeta `backstop/backstop_data/html_report` en el archivo `index.html` e interactúe con los resultados.
+
