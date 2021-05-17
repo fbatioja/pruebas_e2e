@@ -93,7 +93,7 @@ cypress run
 ```
 Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `cypress open` y seleccione la carpeta `cypress/` que se encuentra dentro del repositorio.
 
-## Instrucciones para ejecutar los escenarios en Kraken:
+## Instrucciones para ejecutar los escenarios en Kraken utilizando la máquina virtual de Ubuntu:
 
 ### Configuración
 
