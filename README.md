@@ -155,6 +155,7 @@ backstop test
 Esto realizará la comparación visual de entre las imágenes de referencia y las objetivo, posteriormente se generará un reporte en formato HTML.
 Para visualizarlo, ubíquese en la carpeta `backstop/backstop_data/html_report` en el archivo `index.html` e interactúe con los resultados.
 
+## Instrucciones para ejecutar la comparación en Resemble
 
 ### Pasos para la ejecutar el reporte resemble
 1. Ejecutar Cypres para las pruebas 3.3.0, cambie la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
