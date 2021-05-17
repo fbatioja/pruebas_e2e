@@ -62,6 +62,10 @@ páginas creadas.
 19. Intentar crear un nuevo item con una URL invalida
 20. Intentar crear un nuevo item con una URL invalida en el menu secundario
 
+## Pros y contras de resemble y backstop
+
+Por favor dirijase al siguiente link para ver los pros y contras: [resemble-y-backstop](https://github.com/fbatioja/pruebas_e2e/wiki/Pros-y-contras-resemble-y-backstop)
+
 ## Instrucciones para ejecutar los escenarios en Cypress
 
 ### Instalación
