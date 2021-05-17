@@ -11,7 +11,7 @@ async function executeTest(){
         fs.mkdirSync('./results/');
     }
     fs.mkdirSync(dir);
-    let resultInfo = {}
+    let resultInfo = []
 
     let scenariesJson = cypress.scenaries;
     for (let i in scenariesJson) {
@@ -44,18 +44,28 @@ async function executeTest(){
                     fs.readFileSync(pathStepNew),
                     options
                 );
-
-                resultInfo[i] = {
+                let index = '' + indexStep + j
+                resultInfo[index] = {
                     isSameDimensions: data.isSameDimensions,
                     dimensionDifference: data.dimensionDifference,
                     rawMisMatchPercentage: data.rawMisMatchPercentage,
                     misMatchPercentage: data.misMatchPercentage,
                     diffBounds: data.diffBounds,
                     analysisTime: data.analysisTime,
-                    imageReference:`${dir}/${scenaries[j]}/compare-${steps[indexStep]}`,
-                    imageTest:`${dir}/${scenaries[j]}/compare-${steps[indexStep]}`,
-                    imageResult: `${dir}/${scenaries[j]}/compare-${steps[indexStep]}`
+                    imageReference:`${scenaries[j]}/before-${steps[indexStep]}`,
+                    imageTest:`${scenaries[j]}/after-${steps[indexStep]}`,
+                    imageResult: `${scenaries[j]}/compare-${steps[indexStep]}`,
+                    scenarie: scenaries[j]
                 }
+                var inStr = fs.createReadStream(pathStepOld);
+                var outStr = fs.createWriteStream(`${dir}/${scenaries[j]}/before-${steps[indexStep]}`);
+
+                inStr.pipe(outStr);
+
+                inStr = fs.createReadStream(pathStepNew);
+                outStr = fs.createWriteStream(`${dir}/${scenaries[j]}/after-${steps[indexStep]}`);
+
+                inStr.pipe(outStr);
 
                 fs.writeFileSync(`${dir}/${scenaries[j]}/compare-${steps[indexStep]}`, data.getBuffer());
             }
@@ -75,11 +85,35 @@ function getTestExecution(scenarie) {
     return Math.max(ls);
 }
 
-function browser(b, info){
-    return ``
+function browser(info){
+
+    console.log(info);
+    return `<div class=" browser" id="test0">
+    <div class=" btitle">
+        <h2>Escenario: ${info.scenarie}</h2>
+    </div>
+    <div class="imgline">
+      <div class="imgcontainer">
+        <span class="imgname">Reference</span>
+        <img class="img2" src="${info.imageReference}" id="refImage" label="Reference">
+      </div>
+      <div class="imgcontainer">
+        <span class="imgname">Test</span>
+        <img class="img2" src="${info.imageTest}" id="testImage" label="Test">
+      </div>
+    </div>
+    <div class="imgline">
+      <div class="imgcontainer">
+        <span class="imgname">Diff</span>
+        <img class="imgfull" src="${info.imageResult}" id="diffImage" label="Diff">
+      </div>
+    </div>
+  </div>`
 }
 
 function createReport(datetime, resInfo){
+    console.log(datetime);
+    console.log(resInfo);
     return `
     <html>
         <head>
@@ -87,12 +121,11 @@ function createReport(datetime, resInfo){
             <link href="index.css" type="text/css" rel="stylesheet">
         </head>
         <body>
-            <h1>Report for 
-                 <a href="${config.url}"> ${config.url}</a>
+            <h1>Report for Ghost
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
-                ${config.cypress.scenaries.map(b =>browser(b, resInfo[b]))}
+                ${resInfo.map(b => browser(b))}
             </div>
         </body>
     </html>`
