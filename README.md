@@ -146,7 +146,7 @@ backstop reference
 ```
 
 ### Pasos para la ejecutar el reporte backstop
-1. Ejecutar Cypres para las pruebas 3.3, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
+1. Ejecutar Cypres para las pruebas 3.3.0, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
 2. Ejecutar Cypres para las pruebas 3.42.5, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
 3. Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
 ```
