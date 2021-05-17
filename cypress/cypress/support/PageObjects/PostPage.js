@@ -1,9 +1,23 @@
 export class PostPage {
     
-    screenshot(){
-        cy.screenshot(Cypress.env('version_app') +'/' + Cypress.env('index_post')+'_posts'); 
-        Cypress.env('index_post', Cypress.env('index_post')+1);        
+    setScenario (scenario) {
+        this.scenario = scenario;
+        if (Cypress.env('index_post') === 0) {
+            Cypress.env('time', Date.now());
+        }
     }
+
+    screenshot() {
+        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('time') + '/' + Cypress.env('index_post')+'_post'
+        cy.screenshot(filename);
+        Cypress.env('index_post', Cypress.env('index_post')+1);
+        cy.wait(1000);
+    }
+
+    resetIndexScreshot() {
+        Cypress.env('index_post', 0);
+        Cypress.env('time', Date.now());
+    } 
 
     navigatePost() {
         cy.get('.gh-nav-body .gh-nav-manage a[href="#/posts/"]').click();
