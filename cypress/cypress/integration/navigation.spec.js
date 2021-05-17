@@ -28,7 +28,7 @@ describe('Funcionalidad: Pagina', () => {
         navigationPage.clickSaveButton();
         cy.reload();
         navigationPage.getInputsLabelMenu1().eq(-2).scrollIntoView().should('have.value', label)
-        pageObjectPage.resetIndexScreshot();
+        navigationPage.resetIndexScreshot();
     });
 
     it('Escenario 2: Agregar item en el menu de navegacion secundario', () => {
@@ -49,7 +49,7 @@ describe('Funcionalidad: Pagina', () => {
         navigationPage.setUrlMenu1(badURL);
         navigationPage.clickButtonAddMenu1();
         navigationPage.getInputsUrlMenu1().eq(-2).should('not.have.value', badURL);
-        pageObjectPage.resetIndexScreshot();
+        navigationPage.resetIndexScreshot();
     });
 
     it('Escenario 4: Ingresar URL sin formato menu 2', () => {
@@ -60,7 +60,7 @@ describe('Funcionalidad: Pagina', () => {
         navigationPage.setUrlMenu2(badURL);
         navigationPage.clickButtonAddMenu2();
         navigationPage.getInputsUrlMenu2().eq(-2).should('not.have.value', badURL);
-        pageObjectPage.resetIndexScreshot();
+        navigationPage.resetIndexScreshot();
     });
 
 });

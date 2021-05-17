@@ -1,13 +1,10 @@
 export class PagePage {
     setScenario (scenario) {
         this.scenario = scenario;
-        if (Cypress.env('index_page') === 0) {
-            Cypress.env('time', Date.now());
-        }
     }
 
     screenshot() {
-        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('time') + '/' + Cypress.env('index_page')+'_page'
+        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('index_page')+'_page'
         cy.screenshot(filename);
         Cypress.env('index_page', Cypress.env('index_page')+1);
         cy.wait(1000);
@@ -15,7 +12,6 @@ export class PagePage {
 
     resetIndexScreshot() {
         Cypress.env('index_page', 0);
-        Cypress.env('time', 0);
     }
 
     navigatePage() {

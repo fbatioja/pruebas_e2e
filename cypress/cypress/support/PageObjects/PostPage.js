@@ -2,13 +2,10 @@ export class PostPage {
     
     setScenario (scenario) {
         this.scenario = scenario;
-        if (Cypress.env('index_post') === 0) {
-            Cypress.env('time', Date.now());
-        }
     }
 
     screenshot() {
-        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('time') + '/' + Cypress.env('index_post')+'_post'
+        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('index_post')+'_post'
         cy.screenshot(filename);
         Cypress.env('index_post', Cypress.env('index_post')+1);
         cy.wait(1000);
@@ -16,12 +13,10 @@ export class PostPage {
 
     resetIndexScreshot() {
         Cypress.env('index_post', 0);
-        Cypress.env('time', Date.now());
     } 
 
     navigatePost() {
         cy.get('.gh-nav-body .gh-nav-manage a[href="#/posts/"]').click();
-        this.screenshot();
     }
 
     clickNewPostButton() {

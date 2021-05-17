@@ -1,13 +1,10 @@
 export class NavigationPage {
     setScenario (scenario) {
         this.scenario = scenario;
-        if (Cypress.env('index_navigation') === 0) {
-            Cypress.env('time', Date.now());
-        }
     }
 
     screenshot() {
-        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('time') + '/' + Cypress.env('index_navigation')+'_navigation'
+        let filename = Cypress.env('version_app') +'/' + this.scenario + '/' + Cypress.env('index_navigation')+'_navigation'
         cy.screenshot(filename);
         Cypress.env('index_navigation', Cypress.env('index_navigation')+1);
         cy.wait(1000);
@@ -15,12 +12,10 @@ export class NavigationPage {
 
     resetIndexScreshot() {
         Cypress.env('index_navigation', 0);
-        Cypress.env('time', 0);
     }
 
     navigatePage() {
         cy.get('.gh-nav-body .gh-nav-settings a[href="#/settings/design/"]').click();
-        this.screenshot();
     }
 
     clickButtonAddMenu1() {

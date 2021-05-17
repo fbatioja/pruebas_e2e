@@ -1,13 +1,10 @@
 export class StaffPage {
   setScenario (scenario) {
     this.scenario = scenario;
-    if (Cypress.env('index_page') === 0) {
-        Cypress.env('time', Date.now());
-    }
   }
 
   screenshot() {
-    let filename = `${Cypress.env('version_app')}/${this.scenario}/${Cypress.env('time')}/${Cypress.env('index_page')}_staff`;
+    let filename = `${Cypress.env('version_app')}/${this.scenario}/${Cypress.env('index_page')}_staff`;
     cy.screenshot(filename);
     Cypress.env('index_page', Cypress.env('index_page')+1);
     cy.wait(1000);
@@ -15,12 +12,10 @@ export class StaffPage {
 
   resetIndexScreenshot() {
     Cypress.env('index_page', 0);
-    Cypress.env('time', 0);
   }
 
   navigateStaff() {
     cy.get('.gh-nav-body .gh-nav-manage a[href="#/staff/"]').click();
-    this.screenshot();
   }
 
   clickInvitePeopleButton() {
