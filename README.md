@@ -157,7 +157,7 @@ Para visualizarlo, ubíquese en la carpeta `backstop/backstop_data/html_report` 
 
 
 ### Pasos para la ejecutar el reporte resemble
-1. Ejecutar Cypres para las pruebas 3.3, cambie la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
+1. Ejecutar Cypres para las pruebas 3.3.0, cambie la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
 2. Ejecutar Cypres para las pruebas 3.42.5, cambie la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
 3. Ingresar a la carpeta `report`
 4. Ejecutar comando `npm install`
