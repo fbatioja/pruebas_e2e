@@ -3,7 +3,8 @@ import { TagPage } from "../support/PageObjects/TagPage";
 
 describe('Funcionalidad: Tags', () => {
     const loginPage = new LoginPage();
-    const tagPage = new TagPage();
+    const pageObjectTag = new TagPage();
+    pageObjectTag.resetIndexScreshot();
     beforeEach(()=>{
         cy.fixture('environment').then(function(data) {
             var loginUrl = '';
@@ -16,68 +17,74 @@ describe('Funcionalidad: Tags', () => {
             cy.wait(1000);
 
             loginPage.login(data.email, data.password);
-            tagPage.navigateTag();
+            pageObjectTag.navigateTag();
         });
     });
 
     context('Escenario 1: Crear un tag  y listarlo', () => {
         let name = getRandomString(8);
         it('Crear un tag', () => {
-            tagPage.clickNewTagButton();
-            tagPage.setTagName(name);
-            tagPage.setTagSlug("slug");
-            tagPage.setTagDescription("descriptions");
-            tagPage.setTagMetaTitle("metatitle");
-            tagPage.setTagMetaDescription("metadescription");
-            tagPage.clickSaveButton();
-
+            pageObjectTag.setScenario('crear_tag_y_listarlo');
+            pageObjectTag.clickNewTagButton();
+            pageObjectTag.setTagName(name);
+            pageObjectTag.setTagSlug("slug");
+            pageObjectTag.setTagDescription("descriptions");
+            // pageObjectTag.setTagMetaTitle("metatitle");
+            // pageObjectTag.setTagMetaDescription("metadescription");
+            pageObjectTag.clickSaveButton();
         });
         it('Listar tag', () => {
-            tagPage.getListNamesTags().contains(name);
+            pageObjectTag.setScenario('crear_tag_y_listarlo');
+            pageObjectTag.getListNamesTags().contains(name);
+            pageObjectTag.resetIndexScreshot();
         });
     });
- 
+
     context('Escenario 2: Crear un tag, editarlo y verificar en la lista de tag la edición', () => {
         let name = getRandomString(8);
         it('Crear un tag', () => {
-            tagPage.clickNewTagButton();
-            tagPage.setTagName(name);
-            tagPage.setTagSlug("slug");
-            tagPage.setTagDescription("descriptions");
-            tagPage.setTagMetaTitle("metatitle");
-            tagPage.setTagMetaDescription("metadescription");
-            tagPage.clickSaveButton();
-
+            pageObjectTag.setScenario('crear_tag_editarlo_y_listarlo');
+            pageObjectTag.clickNewTagButton();
+            pageObjectTag.setTagName(name);
+            pageObjectTag.setTagSlug("slug");
+            pageObjectTag.setTagDescription("descriptions");
+            // pageObjectTag.setTagMetaTitle("metatitle");
+            // pageObjectTag.setTagMetaDescription("metadescription");
+            pageObjectTag.clickSaveButton();
         });
         it('Editar tag', () => {
             let editedName = "edited_name";
-            tagPage.clickTag(name);
-            tagPage.setTagName(editedName);
-            tagPage.clickSaveButton();
-            tagPage.navigateTag();  
-            tagPage.getListNamesTags().contains(editedName).should('exist');          
-
+            pageObjectTag.setScenario('crear_tag_editarlo_y_listarlo');
+            pageObjectTag.clickTag(name);
+            pageObjectTag.setTagName(editedName);
+            pageObjectTag.clickSaveButton();
+            pageObjectTag.navigateTag();  
+            pageObjectTag.getListNamesTags().contains(editedName).should('exist');
+            pageObjectTag.resetIndexScreshot();
         });
     });
 
     context('Escenario 3: Crear una tag y eliminarlo', () => {
         let name = getRandomString(8);
         it('Crear un tag', () => {
-            tagPage.clickNewTagButton();
-            tagPage.setTagName(name);
-            tagPage.setTagSlug("slug");
-            tagPage.setTagDescription("descriptions");
-            tagPage.setTagMetaTitle("metatitle");
-            tagPage.setTagMetaDescription("metadescription");
-            tagPage.clickSaveButton();
-
+            pageObjectTag.setScenario('crear_tag_y_eliminarlo');
+            pageObjectTag.clickNewTagButton();
+            pageObjectTag.setTagName(name);
+            pageObjectTag.setTagSlug("slug");
+            pageObjectTag.setTagDescription("descriptions");
+            // pageObjectTag.setTagMetaTitle("metatitle");
+            // pageObjectTag.setTagMetaDescription("metadescription");
+            pageObjectTag.clickSaveButton();
+            pageObjectTag.resetIndexScreshot();
         });
         it('Eliminar tag', () => {
-            tagPage.clickTag(name);
-            tagPage.clickDeleteButton();
-            tagPage.confirmDelete();
-            tagPage.navigateTag();
-            tagPage.getListNamesTags().contains(name).should('not.exist');
+            pageObjectTag.setScenario('crear_tag_y_eliminarlo');
+            pageObjectTag.clickTag(name);
+            pageObjectTag.clickDeleteButton();
+            pageObjectTag.confirmDelete();
+            pageObjectTag.navigateTag();
+            pageObjectTag.getListNamesTags().contains(name).should('not.exist');
+            pageObjectTag.resetIndexScreshot();
         });
     });
 });
