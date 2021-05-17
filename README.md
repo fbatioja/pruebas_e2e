@@ -93,7 +93,7 @@ cypress run
 ```
 Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `cypress open` y seleccione la carpeta `cypress/` que se encuentra dentro del repositorio.
 
-## Instrucciones para ejecutar los escenarios en Kraken utilizando la máquina virtual de Ubuntu:
+## Instrucciones para ejecutar los escenarios en Kraken
 
 ### Configuración
 
@@ -112,7 +112,7 @@ Se debe configurar un usuario administrador y la url del sitio de ghost en el cu
   end
 ```
 
-### Ejecución de los escenarios en Kraken
+### Ejecución de los escenarios en Kraken utilizando la máquina virtual de Ubuntu
 Nota: Pra la ejecución de los escenarios de Kraken se requiere utilizar la resolución de pantalla fullscreen, para ello se debe instalar un componente en la maquina virtual, explicado a continuación:
 1. Abrir VirtualBox y correr la máquina virtual de Ubuntu. Iniciar sesión con usuario con permisos de Administrador
 2. Dar Click en el icono "Dash" en la parte superior del menu a la izquierda de la pantalla. Escribir "Terminal" en la barra de buscador. Correr la aplicación de "Terminal" desde los resultados del buscador.
