@@ -140,16 +140,13 @@ Posteriormente ejecute el comando `npm install -g backstopjs` y aguarde a que se
 ### Configuración
 
 Para la generación del reporte pre-establecido en este proyecto, es necesario indicar la referencia de los archivos a comparar, descritos en el archivo `backstop.json`.
-Para esto desde la terminal ubiquese en la carpeta `backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
-```
-backstop reference
-```
 
 ### Pasos para la ejecutar el reporte backstop
 1. Ejecutar Cypres para las pruebas 3.3.0, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
 2. Ejecutar Cypres para las pruebas 3.42.5, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
 3. Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
 ```
+backstop reference
 backstop test
 ```
 Esto realizará la comparación visual de entre las imágenes de referencia y las objetivo, posteriormente se generará un reporte en formato HTML.
@@ -158,8 +155,8 @@ Para visualizarlo, ubíquese en la carpeta `backstop/backstop_data/html_report` 
 ## Instrucciones para ejecutar la comparación en Resemble
 
 ### Pasos para la ejecutar el reporte resemble
-1. Ejecutar Cypres para las pruebas 3.3.0, cambie la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
-2. Ejecutar Cypres para las pruebas 3.42.5, cambie la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
+1. Ejecutar Cypres para las pruebas 3.3.0, cambie la versión en la variables de ambiente en `cypress/cypress.json` por el valor `3.3.0` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
+2. Ejecutar Cypres para las pruebas 3.42.5, cambie la versión en la variables de ambiente en `cypress/cypress.json` por el valor `3.42.5` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
 3. Ingresar a la carpeta `report`
 4. Ejecutar comando `npm install`
 5. Ejecutar comando `node index.js`
