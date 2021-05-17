@@ -15,8 +15,13 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-// eslint-disable-next-line no-unused-vars
+// cypress/plugins/index.js
+const { renameSync } = require('fs');
+
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-}
+    on('after:screenshot', ({ path }) => {
+        renameSync(path, path.replace(/ \(\d*\)/i, ''));
+    });
+
+    return config;
+};
