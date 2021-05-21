@@ -4,6 +4,8 @@ import { StaffPage } from "../support/PageObjects/StaffPage";
 describe('In order to test ghost application as a site administrator i want invite a new staff member', () => {
   const loginPage = new LoginPage();
   const pageObjectStaff = new StaffPage();
+  const aprioriDataPool = loginPage.getAprioriDataPool('staff-email');
+  const pseudoDataPool = loginPage.getPseudoDataPool('staff-email');
   pageObjectStaff.resetIndexScreenshot();
   beforeEach(()=>{
     cy.fixture('environment').then(function(data) {
