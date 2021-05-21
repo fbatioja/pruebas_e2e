@@ -1,9 +1,21 @@
 import { LoginPage } from "../support/PageObjects/LoginPage";
 import { StaffPage } from "../support/PageObjects/StaffPage";
+var faker = require('faker');
+
+function getRandomItem(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  const item = arr[randomIndex];
+  return item;
+}
 
 describe('In order to test ghost application as a site administrator i want invite a new staff member', () => {
   const loginPage = new LoginPage();
   const pageObjectStaff = new StaffPage();
+  const iterationsScenarie1 = 6;
+  const iterationsScenarie2 = 6;
+  const iterationsScenarie3 = 6;
+  const iterationsScenarie4 = 6;
+  const iterationsScenarie5 = 6;
   const aprioriDataPool = loginPage.getAprioriDataPool('staff-email');
   const pseudoDataPool = loginPage.getPseudoDataPool('staff-email');
   pageObjectStaff.resetIndexScreenshot();
@@ -24,70 +36,97 @@ describe('In order to test ghost application as a site administrator i want invi
   });
 
   context('Sucessfull Author user invitation', () => {
-    let userEmail = 'user@contoso.com';
-    it('Invite user with default role', () => {
-      pageObjectStaff.setScenario('author_user_invitation');
-      pageObjectStaff.clickInvitePeopleButton();
-      pageObjectStaff.setUserEmail(userEmail);
-      pageObjectStaff.clickSendInvitationButton();
-    });
-    it('Check user invitation', () => {
-      pageObjectStaff.setScenario('author_user_invitation');
-      pageObjectStaff.checkUserInvitation(userEmail);
-      pageObjectStaff.resetIndexScreenshot();
-    });
-  });
-
-  context('Sucessfull Administrator user invitation', () => {
-    let userEmail = 'adminuser@contoso.com';
-    let role = 'Administrator';
-    it('Invite user with admin role', () => {
-      pageObjectStaff.setScenario('administrator_user_invitation');
-      pageObjectStaff.clickInvitePeopleButton();
-      pageObjectStaff.setUserEmail(userEmail);
-      pageObjectStaff.setUserRol(role);
-      pageObjectStaff.clickSendInvitationButton();
-    });
-    it('Check user invitation', () => {
-      pageObjectStaff.setScenario('administrator_user_invitation');
-      pageObjectStaff.checkUserInvitation(userEmail);
-      pageObjectStaff.resetIndexScreenshot();
-    });
+    // Apriori data-pool
+    for (let index = 0; index < iterationsScenarie1; index++) {
+      const item = aprioriDataPool[index];
+      let userEmail = item.email;
+      let role = item.role;
+      it('Invite user with default role', () => {
+        pageObjectStaff.setScenario('author_user_invitation');
+        pageObjectStaff.clickInvitePeopleButton();
+        pageObjectStaff.setUserEmail(userEmail);
+        pageObjectStaff.setUserRol(role);
+        pageObjectStaff.clickSendInvitationButton();
+      });
+      it('Check user invitation', () => {
+        pageObjectStaff.setScenario('author_user_invitation');
+        pageObjectStaff.checkUserInvitation(userEmail);
+        pageObjectStaff.resetIndexScreenshot();
+      });
+    }
   });
 
   context('Duplicated user invitation', () => {
-    let userEmail = 'user@contoso.com';
-    it('Invite an invited user', () => {
-      pageObjectStaff.setScenario('duplicated_user_invitation');
-      pageObjectStaff.clickInvitePeopleButton();
-      pageObjectStaff.setUserEmail(userEmail);
-      pageObjectStaff.clickSendInvitationButton();
-      pageObjectStaff.checkDuplicatedEmail();
-      pageObjectStaff.resetIndexScreenshot();
-    });
+    // Apriori data-pool
+    for (let index = 0; index < iterationsScenarie2; index++) {
+      const item = aprioriDataPool[index];
+      let userEmail = item.email;
+      let role = item.role;
+      it('Invite an invited user', () => {
+        pageObjectStaff.setScenario('duplicated_user_invitation');
+        pageObjectStaff.clickInvitePeopleButton();
+        pageObjectStaff.setUserEmail(userEmail);
+        pageObjectStaff.setUserRol(role);
+        pageObjectStaff.clickSendInvitationButton();
+        pageObjectStaff.checkDuplicatedEmail();
+        pageObjectStaff.resetIndexScreenshot();
+      });
+    }
   });
 
   context('Empty user invitation', () => {
-    let userEmail = ' ';
-    it('Invite an empty user', () => {
-      pageObjectStaff.setScenario('empty_user_invitation');
-      pageObjectStaff.clickInvitePeopleButton();
-      pageObjectStaff.setUserEmail(userEmail);
-      pageObjectStaff.clickSendInvitationButton();
-      pageObjectStaff.checkEmptyEmail();
-      pageObjectStaff.resetIndexScreenshot();
-    });
+    // Pseudo data-pool
+    for (let index = 0; index < iterationsScenarie3; index++) {
+      const item = getRandomItem(pseudoDataPool);
+      let userEmail = item.empty_email;
+      let role = item.role;
+      it('Invite an empty user', () => {
+        pageObjectStaff.setScenario('empty_user_invitation');
+        pageObjectStaff.clickInvitePeopleButton();
+        pageObjectStaff.setUserEmail(userEmail);
+        pageObjectStaff.setUserRol(role);
+        pageObjectStaff.clickSendInvitationButton();
+        pageObjectStaff.checkEmptyEmail();
+        pageObjectStaff.resetIndexScreenshot();
+      });
+    }
   });
 
   context('Invalid user invitation', () => {
-    let userEmail = 'user.contoso.com';
-    it('Invite an invalid user', () => {
-      pageObjectStaff.setScenario('invalid_user_invitation');
-      pageObjectStaff.clickInvitePeopleButton();
-      pageObjectStaff.setUserEmail(userEmail);
-      pageObjectStaff.clickSendInvitationButton();
-      pageObjectStaff.checkInvalidEmail();
-      pageObjectStaff.resetIndexScreenshot();
-    });
+    // Pseudo data-pool
+    for (let index = 0; index < iterationsScenarie4; index++) {
+      const item = getRandomItem(pseudoDataPool);
+      let userEmail = item.invalid_email;
+      let role = item.role;
+      it('Invite an invalid user', () => {
+        pageObjectStaff.setScenario('invalid_user_invitation');
+        pageObjectStaff.clickInvitePeopleButton();
+        pageObjectStaff.setUserEmail(userEmail);
+        pageObjectStaff.setUserRol(role);
+        pageObjectStaff.clickSendInvitationButton();
+        pageObjectStaff.checkInvalidEmail();
+        pageObjectStaff.resetIndexScreenshot();
+      });
+    }
+  });
+
+  context('Sucessfull Administrator user invitation', () => {
+    // Random data
+    for (let index = 0; index < iterationsScenarie5; index++) {
+      let userEmail = faker.internet.email();
+      let role = 'Administrator';
+      it('Invite user with admin role', () => {
+        pageObjectStaff.setScenario('administrator_user_invitation');
+        pageObjectStaff.clickInvitePeopleButton();
+        pageObjectStaff.setUserEmail(userEmail);
+        pageObjectStaff.setUserRol(role);
+        pageObjectStaff.clickSendInvitationButton();
+      });
+      it('Check user invitation', () => {
+        pageObjectStaff.setScenario('administrator_user_invitation');
+        pageObjectStaff.checkUserInvitation(userEmail);
+        pageObjectStaff.resetIndexScreenshot();
+      });
+    }
   });
 });
