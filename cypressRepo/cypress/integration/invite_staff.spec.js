@@ -1,5 +1,6 @@
 import { LoginPage } from "../support/PageObjects/LoginPage";
 import { StaffPage } from "../support/PageObjects/StaffPage";
+const aprioriDataPool = require('../fixtures/staff-email.json');
 var faker = require('faker');
 
 function getRandomItem(arr) {
@@ -11,12 +12,9 @@ function getRandomItem(arr) {
 describe('In order to test ghost application as a site administrator i want invite a new staff member', () => {
   const loginPage = new LoginPage();
   const pageObjectStaff = new StaffPage();
-  const iterationsScenarie1 = 6;
-  const iterationsScenarie2 = 6;
-  const iterationsScenarie3 = 6;
-  const iterationsScenarie4 = 6;
-  const iterationsScenarie5 = 6;
-  const aprioriDataPool = loginPage.getAprioriDataPool('staff-email');
+  const scenariosQuantity = 5;
+  const featureIterations = 30;
+  const scenarieIterations = Math.ceil(featureIterations / scenariosQuantity);
   const pseudoDataPool = loginPage.getPseudoDataPool('staff-email');
   pageObjectStaff.resetIndexScreenshot();
   beforeEach(()=>{
@@ -37,7 +35,7 @@ describe('In order to test ghost application as a site administrator i want invi
 
   context('Sucessfull Author user invitation', () => {
     // Apriori data-pool
-    for (let index = 0; index < iterationsScenarie1; index++) {
+    for (let index = 0; index < scenarieIterations; index++) {
       const item = aprioriDataPool[index];
       let userEmail = item.email;
       let role = item.role;
@@ -58,7 +56,7 @@ describe('In order to test ghost application as a site administrator i want invi
 
   context('Duplicated user invitation', () => {
     // Apriori data-pool
-    for (let index = 0; index < iterationsScenarie2; index++) {
+    for (let index = 0; index < scenarieIterations; index++) {
       const item = aprioriDataPool[index];
       let userEmail = item.email;
       let role = item.role;
@@ -76,7 +74,7 @@ describe('In order to test ghost application as a site administrator i want invi
 
   context('Empty user invitation', () => {
     // Pseudo data-pool
-    for (let index = 0; index < iterationsScenarie3; index++) {
+    for (let index = 0; index < scenarieIterations; index++) {
       const item = getRandomItem(pseudoDataPool);
       let userEmail = item.empty_email;
       let role = item.role;
@@ -94,7 +92,7 @@ describe('In order to test ghost application as a site administrator i want invi
 
   context('Invalid user invitation', () => {
     // Pseudo data-pool
-    for (let index = 0; index < iterationsScenarie4; index++) {
+    for (let index = 0; index < scenarieIterations; index++) {
       const item = getRandomItem(pseudoDataPool);
       let userEmail = item.invalid_email;
       let role = item.role;
@@ -112,7 +110,7 @@ describe('In order to test ghost application as a site administrator i want invi
 
   context('Sucessfull Administrator user invitation', () => {
     // Random data
-    for (let index = 0; index < iterationsScenarie5; index++) {
+    for (let index = 0; index < scenarieIterations; index++) {
       let userEmail = faker.internet.email();
       let role = 'Administrator';
       it('Invite user with admin role', () => {

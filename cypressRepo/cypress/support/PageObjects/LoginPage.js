@@ -5,19 +5,11 @@ export class LoginPage {
     cy.get('#login button[type="submit"]').click();
   }
 
-  getAprioriDataPool(dataPoolName) {
-    let dataPool = {};
-    cy.fixture(dataPoolName).then(function(data) {
-      dataPool = data;
-    });
-    return dataPool;
-  }
-
   getPseudoDataPool(dataPoolName) {
     let dataPool = {};
     let mockarooApiKey = 'd8e87be0';
     let url = `https://my.api.mockaroo.com/${dataPoolName}.json?key=${mockarooApiKey}`;
-    $.ajax({
+    Cypress.$.ajax({
       async: false,
       url: url,
       responseType:'application/json',
