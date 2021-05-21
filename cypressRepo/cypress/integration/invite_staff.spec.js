@@ -76,7 +76,7 @@ describe('In order to test ghost application as a site administrator i want invi
     // Pseudo data-pool
     for (let index = 0; index < scenarieIterations; index++) {
       const item = getRandomItem(pseudoDataPool);
-      let userEmail = item.empty_email;
+      let userEmail = item.empty_email === null ? '' : item.empty_email;
       let role = item.role;
       it('Invite an empty user', () => {
         pageObjectStaff.setScenario('empty_user_invitation');
