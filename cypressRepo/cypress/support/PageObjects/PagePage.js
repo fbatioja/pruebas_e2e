@@ -36,7 +36,7 @@ export class PagePage {
         cy.get('textarea.gh-editor-title').type(title);
     }
 
-    createDraft() {
+    saveDraft() {
         cy.get('article.koenig-editor').click();
         this.screenshot();
     }
@@ -67,6 +67,10 @@ export class PagePage {
         this.screenshot();
     }
 
+    setSlug(content) {
+        this.getSlug().type(content);
+    }
+
     clickDeleteButton() {
         cy.get('button.settings-menu-delete-button').click();
         this.screenshot();
@@ -79,5 +83,26 @@ export class PagePage {
 
     getStatusPage(title) {
         return this.getListTitlesPage().contains(title, {force: true}).parent('a').parent('li');
+    }
+
+    getErrorMessageTitle() {
+        return cy.get("article.gh-alert .gh-alert-content");
+    }
+
+    getSlug() {
+        return cy.get('input[name="post-setting-slug"]');
+    }
+
+    closePanelConfiguration() {
+        cy.get('div.content-cover').click();
+    }
+
+    setPublishDate(content) {
+        this.getPublishDate().clear();
+        this.getPublishDate().type(content);
+    }
+
+    getPublishDate() {
+        return cy.get('.gh-date-time-picker .gh-date-time-picker-date input');
     }
 }
