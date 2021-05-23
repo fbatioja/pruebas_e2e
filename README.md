@@ -64,6 +64,8 @@ Se debe configurar un usuario administrador y la url del sitio de ghost en el cu
 }
 ```
 
+### Ejecución
+
 Para ejecutarlo desde la terminal ubiquese en la carpeta `cypressRepo/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
 ```
 ./node_modules/.bin/cypress run
