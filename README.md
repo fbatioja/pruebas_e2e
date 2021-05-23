@@ -39,6 +39,48 @@ usuarios.
 La sección de diseño de navegación permite ordenar y referenciar las rutas asociadas a las
 páginas creadas.
 
+# Semana 7
+
+## Descripción de las estrategias usadas
+
+Por favor dirijase al siguiente link para ver la descripción de las estrategias usadas: [Descripción de las estrategias usadas](https://github.com/fbatioja/pruebas_e2e/wiki/Estrategias-de-generaci%C3%B3n-de-datos)
+
+
+### Instalación
+
+Para la ejecución de los escenarios de pruebas debe clonar el repositorio, ubicarse en la carpeta `cypressRepo/` y ejecutar el siguiente comando:
+```
+npm install
+```
+
+### Configuración
+
+Se debe configurar un usuario administrador y la url del sitio de ghost en el cual se van a ejecutar las pruebas. Esta configuración se realiza en `cypress/fixtures/environment.json` como se muestra en el siguiente ejemplo:
+```
+{
+  "email": "admin@test.com",
+  "password": "1a2B3c4D,F",
+  "url": "http://localhost:2370/ghost"
+}
+```
+
+Para ejecutarlo desde la terminal ubiquese en la carpeta `cypressRepo/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+```
+./node_modules/.bin/cypress run
+```
+O con el acceso directo usando npm bin
+```
+$(npm bin)/cypress run
+```
+O utilizando npx
+```
+npx cypress run
+```
+
+Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `$(npm bin)/cypress open` y seleccione la carpeta `cypressRepo/` que se encuentra dentro del repositorio.
+
+
+# Semana 6
 ## Escenarios de Prueba
 
 1. Crear un post y verificar la existencia del post en la lista de posts
