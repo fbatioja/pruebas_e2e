@@ -1,5 +1,4 @@
-export class PostPage {
-    
+export class PostPage {    
     setScenario (scenario) {
         this.scenario = scenario;
     }
@@ -80,5 +79,14 @@ export class PostPage {
 
     getStatusPost(title) {
         return this.getListTitlesPosts().contains(title, {force: true}).parent('a').parent('li');
+    }
+
+    getErrorMessageTitle() {
+        return cy.get("article.gh-alert .gh-alert-content");
+    }
+
+
+    closePanelConfiguration() {
+        cy.get('div.content-cover').click();
     }
 }
