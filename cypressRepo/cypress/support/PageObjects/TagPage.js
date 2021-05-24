@@ -2,7 +2,6 @@ export class TagPage {
     setScenario (scenario) {
         this.scenario = scenario;
         if (Cypress.env('index_page') === 0) {
-        // Cypress.env('time', Date.now());
         }
     }
 
@@ -15,7 +14,6 @@ export class TagPage {
 
     resetIndexScreshot() {
         Cypress.env('index_page', 0);
-        // Cypress.env('time', 0);
     }
     
     navigateTag() {
@@ -78,4 +76,13 @@ export class TagPage {
     getStatusTag(name) {
         return this.getListNamesTags().contains(name, {force: true}).parent('a').parent('li');
     }
+
+    getErrorMessageName() {
+        return cy.get("span.error");
+    }
+
+    // getErrorMessageRetry() {
+    //     return cy.get('button', 'Retry');
+    // }
+
 }
