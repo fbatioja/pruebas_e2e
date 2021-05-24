@@ -105,4 +105,16 @@ export class PagePage {
     getPublishDate() {
         return cy.get('.gh-date-time-picker .gh-date-time-picker-date input');
     }
+
+    typeTag(content) {
+        cy.get('#tag-input input').type(content);
+    }
+
+    clickAddNewTag() {
+        cy.get('ul[role="listbox"] li').click();
+    }
+
+    getTags() {
+        return cy.get('#tag-input ul li').click();
+    }
 }

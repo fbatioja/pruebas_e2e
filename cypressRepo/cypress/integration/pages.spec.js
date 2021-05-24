@@ -111,4 +111,21 @@ describe('Funcionalidad: Pagina', () => {
             });
         }
     });
+
+    context(`Escenario 6: Tags caracteres especiales`, () => {
+        for (let index = 0; index < 3; index++) {
+            const item = pseudoDataPool[index];
+            it('Tags caracteres especiales', () => {
+                pageObjectPage.setScenario('tags_caracteres_especiales');
+                pageObjectPage.clickNewPageButton();
+                pageObjectPage.setPageTitle(faker.lorem.word());
+                pageObjectPage.saveDraft();
+                pageObjectPage.openPanelConfiguration();
+                pageObjectPage.typeTag(item.invalid_tags);
+                pageObjectPage.clickAddNewTag();
+                pageObjectPage.getTags().contains(item.invalid_tags);
+                pageObjectPage.resetIndexScreshot();
+            });
+        }
+    });
 });
