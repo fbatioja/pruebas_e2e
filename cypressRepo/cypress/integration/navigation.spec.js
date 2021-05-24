@@ -1,9 +1,10 @@
 import { LoginPage } from "../support/PageObjects/LoginPage";
 import {NavigationPage} from "../support/PageObjects/NavigationPage";
 
-describe('Funcionalidad: Pagina', () => {
+describe('Funcionalidad: Navigation', () => {
     const loginPage = new LoginPage();
     const navigationPage = new NavigationPage();
+    const faker = require('faker');
     beforeEach(()=>{
         cy.fixture('environment').then(function(data) {
             var loginUrl = '';
@@ -22,7 +23,7 @@ describe('Funcionalidad: Pagina', () => {
 
     it('Escenario 1: Agregar item en el menu de navegacion', () => {
         navigationPage.setScenario('agregar_item_en_el_menu_de_navegacion');
-        let label = getRandomString(5);
+        let label = faker.lorem.word();
         navigationPage.setLabelMenu1(label);
         navigationPage.clickButtonAddMenu1();
         navigationPage.clickSaveButton();
@@ -33,7 +34,7 @@ describe('Funcionalidad: Pagina', () => {
 
     it('Escenario 2: Agregar item en el menu de navegacion secundario', () => {
         navigationPage.setScenario('agregar_item_en_el_menu_de_navegacion_secundario');
-        let label = getRandomString(5);
+        let label = faker.lorem.word();
         navigationPage.setLabelMenu2(label);
         navigationPage.clickButtonAddMenu2();
         navigationPage.clickSaveButton();
@@ -43,8 +44,8 @@ describe('Funcionalidad: Pagina', () => {
 
     it('Escenario 3: Ingresar URL sin formato menu 1', () => {
         navigationPage.setScenario('ingresar_url_sin_formato_menu_1');
-        let label = getRandomString(5);
-        let badURL =  'Url sin formato';
+        let label = faker.lorem.word();
+        let badURL =  faker.internet.domainSuffix();
         navigationPage.setLabelMenu1(label);
         navigationPage.setUrlMenu1(badURL);
         navigationPage.clickButtonAddMenu1();
@@ -54,8 +55,8 @@ describe('Funcionalidad: Pagina', () => {
 
     it('Escenario 4: Ingresar URL sin formato menu 2', () => {
         navigationPage.setScenario('ingresar_url_sin_formato_menu_2');
-        let label = getRandomString(5);
-        let badURL =  'Url sin formato';
+        let label = faker.lorem.word();
+        let badURL =  faker.internet.domainSuffix();
         navigationPage.setLabelMenu2(label);
         navigationPage.setUrlMenu2(badURL);
         navigationPage.clickButtonAddMenu2();
@@ -64,18 +65,3 @@ describe('Funcionalidad: Pagina', () => {
     });
 
 });
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function getRandomString(length) {
-    let possible = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,!@#$%^&*()";
-    let textResult = "";
-    for (var i = 0; i < length; i++) {
-        textResult += possible.charAt(getRandomInt(1, possible.length));
-    }
-    return textResult;
-}
