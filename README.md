@@ -39,8 +39,6 @@ usuarios.
 La sección de diseño de navegación permite ordenar y referenciar las rutas asociadas a las
 páginas creadas.
 
-# Semana 7
-
 ## Descripción de las estrategias usadas
 
 Por favor dirijase al siguiente link para ver la descripción de las estrategias usadas: [Descripción de las estrategias usadas](https://github.com/fbatioja/pruebas_e2e/wiki/Estrategias-de-generaci%C3%B3n-de-datos)
@@ -82,7 +80,6 @@ npx cypress run
 Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `$(npm bin)/cypress open` y seleccione la carpeta `cypressRepo/` que se encuentra dentro del repositorio.
 
 
-# Semana 6
 ## Escenarios de Prueba
 
 1. Crear un post y verificar la existencia del post en la lista de posts
@@ -208,3 +205,7 @@ Para visualizarlo, ubíquese en la carpeta `backstop/backstop_data/html_report` 
 3. Ingresar a la carpeta `report`
 4. Ejecutar comando `npm install`
 5. Ejecutar comando `node index.js`
+
+
+## Inventario de pruebas de manuales
+https://github.com/fbatioja/pruebas_e2e/blob/main/inventario-pruebas-exploratorias.xlsx
