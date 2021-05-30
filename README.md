@@ -7,7 +7,12 @@
 - Santiago Ocampo, s.ocampor@uniandes.edu.co
 - Daniel Quiceno, d.quicenoc@uniandes.edu.co
 
-## Pruebas de manuales
+## Estrategia de pruebas
+
+En el siguiente enlace encontrará la estrategia de pruebas. Al final de la estrategia se encuentra el enlace al video 
+https://github.com/fbatioja/pruebas_e2e/blob/main/Estrategia%20de%20pruebas.pdf
+
+## Pruebas manuales
 En el siguiente enlace encontrara el inventario de las pruebas manuales.
 https://github.com/fbatioja/pruebas_e2e/blob/main/inventario-pruebas-exploratorias.xlsx
 
