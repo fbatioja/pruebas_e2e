@@ -7,80 +7,14 @@
 - Santiago Ocampo, s.ocampor@uniandes.edu.co
 - Daniel Quiceno, d.quicenoc@uniandes.edu.co
 
-## Funcionalidades a probar
+## Pruebas de manuales
+En el siguiente enlace encontrara el inventario de las pruebas manuales.
+https://github.com/fbatioja/pruebas_e2e/blob/main/inventario-pruebas-exploratorias.xlsx
 
-### 1. Creación de post
+## Pruebas e2e y vrt
+Las pruebas e2e y vrt se encuentran en la carpeta `pruebas_e2e_y_vrt`. A continuación se muestran los escenarios probados y se explica como ejecutarlas.
 
-La creación de contenido de tipo publicación es una de las funcionalidades centrales de
-Ghost. En esta característica es posible la construcción del post mediante texto plano,
-herramientas primarias y herramientas embebidas.
-
-### 2. Creación de página
-
-La creación de páginas es otra de las funcionalidades centrales de Ghost. En esta
-característica es posible la construcción de páginas adicionales en los módulos de
-presentación mediante texto plano, herramientas primarias y herramientas embebidas.
-
-### 3. Creación de tag
-
-Las etiquetas o categorías asociadas a los posts, sirven como mecanismo de búsqueda,
-organización y presentación de contenido. En esta característica es posible diligenciar el
-formulario de registro de un nuevo tag.
-
-### 4. Invitación de usuarios (staff)
-
-La adición de nuevos miembros que participen de diferentes modos en la construcción,
-publicación y gestión de contenido, es otra de las funcionalidades principales de la aplicación
-bajo pruebas. En esta característica es posible diligenciar el formulario de invitación de nuevos
-usuarios.
-
-### 5. Diseño – sección navegación
-
-La sección de diseño de navegación permite ordenar y referenciar las rutas asociadas a las
-páginas creadas.
-
-## Descripción de las estrategias usadas
-
-Por favor dirijase al siguiente link para ver la descripción de las estrategias usadas: [Descripción de las estrategias usadas](https://github.com/fbatioja/pruebas_e2e/wiki/Estrategias-de-generaci%C3%B3n-de-datos)
-
-
-### Instalación
-
-Para la ejecución de los escenarios de pruebas debe clonar el repositorio, ubicarse en la carpeta `cypressRepo/` y ejecutar el siguiente comando:
-```
-npm install
-```
-
-### Configuración
-
-Se debe configurar un usuario administrador y la url del sitio de ghost en el cual se van a ejecutar las pruebas. Esta configuración se realiza en `cypress/fixtures/environment.json` como se muestra en el siguiente ejemplo:
-```
-{
-  "email": "admin@test.com",
-  "password": "1a2B3c4D,F",
-  "url": "http://localhost:2370/ghost"
-}
-```
-
-### Ejecución
-
-Para ejecutarlo desde la terminal ubiquese en la carpeta `cypressRepo/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
-```
-./node_modules/.bin/cypress run
-```
-O con el acceso directo usando npm bin
-```
-$(npm bin)/cypress run
-```
-O utilizando npx
-```
-npx cypress run
-```
-
-Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `$(npm bin)/cypress open` y seleccione la carpeta `cypressRepo/` que se encuentra dentro del repositorio.
-
-
-## Escenarios de Prueba
+### Escenarios de Prueba
 
 1. Crear un post y verificar la existencia del post en la lista de posts
 2. Crear un post, publicarlo y verificar en la lista de post el estado del post
@@ -103,22 +37,16 @@ Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecu
 19. Intentar crear un nuevo item con una URL invalida
 20. Intentar crear un nuevo item con una URL invalida en el menu secundario
 
-## Pros y contras de resemble y backstop
+### Instrucciones para ejecutar las pruebas e2e en Cypress
 
-Por favor dirijase al siguiente link para ver los pros y contras: [resemble-y-backstop](https://github.com/fbatioja/pruebas_e2e/wiki/Pros-y-contras-resemble-y-backstop)
-
-## Instrucciones para ejecutar los escenarios en Cypress
-
-### Instalación
-
+#### Instalación
 Para la ejecución de los escenarios de pruebas es necesario contar con una instalación global de cypress en su equipo.
 Primero, verifique que cuente con una versión de Node.js de 12 en adelante.
 Posteriormente ejecute el comando `npm install cypress` y aguarde a que se instalen todas las dependencias.
 
 Si desea realizar la instalación por contenedores de docker, le recomendamos seguir las instrucciones de la documentación oficial de [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress).
 
-### Configuración
-
+#### Configuración
 Se debe configurar un usuario administrador y la url del sitio de ghost en el cual se van a ejecutar las pruebas. Esta configuración se realiza en `cypress/fixtures/environment.json` como se muestra en el siguiente ejemplo:
 ```
 {
@@ -128,17 +56,17 @@ Se debe configurar un usuario administrador y la url del sitio de ghost en el cu
 }
 ```
 
-Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `cypress/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `pruebas_e2e_y_vrt/cypress/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
 ```
 cypress run
 ```
-Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `cypress open` y seleccione la carpeta `cypress/` que se encuentra dentro del repositorio.
+Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `cypress open` y seleccione la carpeta `pruebas_e2e_y_vrt/cypress/` que se encuentra dentro del repositorio.
 
-## Instrucciones para ejecutar los escenarios en Kraken
+### Instrucciones para ejecutar los escenarios en Kraken
 
-### Configuración
+#### Configuración
 
-Se debe configurar un usuario administrador y la url del sitio de ghost en el cual se van a ejecutar las pruebas. Esta configuración se realiza en `kraken/feature/web/step_definitions/web_steps.rb`. Debe modificar las variables `$email`, `$password` y `$url`.
+Se debe configurar un usuario administrador y la url del sitio de ghost en el cual se van a ejecutar las pruebas. Esta configuración se realiza en `pruebas_e2e_y_vrt/kraken/feature/web/step_definitions/web_steps.rb`. Debe modificar las variables `$email`, `$password` y `$url`.
 ```
   Then(/^I login in ghost as admin$/) do
     $email = 'admin@test.com'
@@ -153,13 +81,13 @@ Se debe configurar un usuario administrador y la url del sitio de ghost en el cu
   end
 ```
 
-### Ejecución de los escenarios en Kraken utilizando la máquina virtual de Ubuntu
+#### Ejecución de los escenarios en Kraken utilizando la máquina virtual de Ubuntu
 Nota: Pra la ejecución de los escenarios de Kraken se requiere utilizar la resolución de pantalla fullscreen, para ello se debe instalar un componente en la maquina virtual, explicado a continuación:
 1. Abrir VirtualBox y correr la máquina virtual de Ubuntu. Iniciar sesión con usuario con permisos de Administrador
 2. Dar Click en el icono "Dash" en la parte superior del menu a la izquierda de la pantalla. Escribir "Terminal" en la barra de buscador. Correr la aplicación de "Terminal" desde los resultados del buscador.
 3. Escribir en el "Terminal": `sudo apt-get install virtualbox-guest-dmks` y presionar "Enter". Esperar hasta finalizar la instalación. La funcionalidad de ajustar tamaño de pantalla estará activada
 4. Reiniciar Maquina Virtual
-5. Ejecutar pruebas desde la terminal clonando el repositorio y ubicádose en la carpeta `kraken/` que se encuentra dentro del repositorio, ejecutando el siguiente comando:
+5. Ejecutar pruebas desde la terminal clonando el repositorio y ubicádose en la carpeta `pruebas_e2e_y_vrt/kraken/` que se encuentra dentro del repositorio, ejecutando el siguiente comando:
 
 ```
 bundle exec kraken-mobile run
@@ -170,42 +98,68 @@ bundle install --path vendor/bundle
 bundle install
 ```
 
-Si presenta errores con la ejecución copie los archivos con los features que se encuentran en `kraken/feature/` y el archivo con los pasos que se encuentra en `kraken/feature/web/step_definitions/web_steps.rb` y péguelos en un proyecto funcional de kraken.
+### Instrucciones para ejecutar la comparación en Backstop
 
-
-## Instrucciones para ejecutar la comparación en Backstop
-
-### Instalación
-
+#### Instalación
 Para la ejecución y generación del reporte VRT de los escenarios de pruebas, es necesario contar con una instalación global de [BackstopJS](http://garris.github.io/BackstopJS/) en su equipo.
 Primero, verifique que cuente con una versión de Node.js de 12 en adelante.
 Posteriormente ejecute el comando `npm install -g backstopjs` y aguarde a que se instalen todas las dependencias.
 
-
-### Configuración
-
+#### Configuración
 Para la generación del reporte pre-establecido en este proyecto, es necesario indicar la referencia de los archivos a comparar, descritos en el archivo `backstop.json`.
 
-### Pasos para la ejecutar el reporte backstop
-1. Ejecutar Cypres para las pruebas 3.3.0, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
-2. Ejecutar Cypres para las pruebas 3.42.5, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
-3. Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+#### Pasos para la ejecutar el reporte backstop
+1. Ejecutar Cypress para las pruebas 3.3.0, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `pruebas_e2e_y_vrt/cypress/cypress/fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
+2. Ejecutar Cypress para las pruebas 3.42.5, cambiando la versión en la variables de ambiente en `cypress.json` y el entorno en `pruebas_e2e_y_vrt/cypress/cypress/fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
+3. Para ejecutarlo desde la terminal clone el repositorio y ubiquese en la carpeta `pruebas_e2e_y_vrt/backstop/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
 ```
 backstop reference
 backstop test
 ```
 Esto realizará la comparación visual de entre las imágenes de referencia y las objetivo, posteriormente se generará un reporte en formato HTML.
-Para visualizarlo, ubíquese en la carpeta `backstop/backstop_data/html_report` en el archivo `index.html` e interactúe con los resultados.
+Para visualizarlo, ubíquese en la carpeta `pruebas_e2e_y_vrt/backstop/backstop_data/html_report` en el archivo `index.html` e interactúe con los resultados.
 
-## Instrucciones para ejecutar la comparación en Resemble
-
-### Pasos para la ejecutar el reporte resemble
-1. Ejecutar Cypres para las pruebas 3.3.0, cambie la versión en la variables de ambiente en `cypress/cypress.json` por el valor `3.3.0` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
-2. Ejecutar Cypres para las pruebas 3.42.5, cambie la versión en la variables de ambiente en `cypress/cypress.json` por el valor `3.42.5` y el entorno en `fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
+### Instrucciones para ejecutar la comparación en Resemble
+#### Pasos para la ejecutar el reporte resemble
+1. Ejecutar Cypres para las pruebas 3.3.0, cambie la versión en la variables de ambiente en `pruebas_e2e_y_vrt/cypress/cypress/cypress.json` por el valor `3.3.0` y el entorno en `pruebas_e2e_y_vrt/cypress/cypress/fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
+2. Ejecutar Cypres para las pruebas 3.42.5, cambie la versión en la variables de ambiente en `pruebas_e2e_y_vrt/cypress/cypress/cypress.json` por el valor `3.42.5` y el entorno en `pruebas_e2e_y_vrt/cypress/cypress/fixture/environment.json` y posteriormente `cypress run` en la carpeta `cypress`.
 3. Ingresar a la carpeta `report`
 4. Ejecutar comando `npm install`
 5. Ejecutar comando `node index.js`
 
+## Pruebas de validación de datos
+Las pruebas de validación de datos se encuentran en la carpeta `validacion_datos`. A continuación se explica como ejecutarlas. 
 
-## Inventario de pruebas de manuales
-https://github.com/fbatioja/pruebas_e2e/blob/main/inventario-pruebas-exploratorias.xlsx
+### Instalación
+
+Para la ejecución de los escenarios de pruebas debe clonar el repositorio, ubicarse en la carpeta `validacion_datos/` y ejecutar el siguiente comando:
+```
+npm install
+```
+
+### Configuración
+
+Se debe configurar un usuario administrador y la url del sitio de ghost en el cual se van a ejecutar las pruebas. Esta configuración se realiza en `validacion_datos/cypress/fixtures/environment.json` como se muestra en el siguiente ejemplo:
+```
+{
+  "email": "admin@test.com",
+  "password": "1a2B3c4D,F",
+  "url": "http://localhost:2370/ghost"
+}
+```
+
+### Ejecución
+
+Para ejecutarlo desde la terminal ubiquese en la carpeta `cypressRepo/` que se encuentra dentro del repositorio y ejecute el siguiente comando:
+```
+./node_modules/.bin/cypress run
+```
+O con el acceso directo usando npm bin
+```
+$(npm bin)/cypress run
+```
+O utilizando npx
+```
+npx cypress run
+```
+Puede ejecutarlo también desde la interfaz gráfica de cypress, para esto ejecute el comando `$(npm bin)/cypress open` y seleccione la carpeta `cypressRepo/` que se encuentra dentro del repositorio.
